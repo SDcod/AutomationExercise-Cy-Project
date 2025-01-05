@@ -18,6 +18,8 @@
 // 17. Click 'Delete Account' button
 // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
+import HomePage from "../pages/HomePage";
+
 describe("register user", () => {
   let userdata = {};
 
@@ -29,9 +31,12 @@ describe("register user", () => {
   });
 
   it("register user : Positive", () => {
-    cy.get(".features_items > h2")
-      .should("exist")
-      .should("have.text", "Features Items");
+    // cy.get(".features_items > h2")
+    //   .should("exist")
+    //   .should("have.text", "Features Items");
+
+    //Verify that home page is visible successfully by validating the tile
+    HomePage.validateFeatureItemTitle();
 
     cy.get("a[href='/login']").should("be.visible").click();
 
