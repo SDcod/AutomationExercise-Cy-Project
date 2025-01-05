@@ -19,6 +19,7 @@
 // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
 import HomePage from "../pages/HomePage";
+import SignUpAndLogin from "../pages/SignUpAndLogin";
 
 describe("register user", () => {
   let userdata = {};
@@ -27,26 +28,23 @@ describe("register user", () => {
     cy.fixture("LoginData.json").then((data) => {
       userdata = data;
     });
+    // 1. Launch browser
+    // 2. Navigate to url 'http://automationexercise.com'
     cy.visit("/");
   });
 
   it("register user : Positive", () => {
-    // cy.get(".features_items > h2")
-    //   .should("exist")
-    //   .should("have.text", "Features Items");
+    // 3. Verify that home page is visible successfully
+    // 4. Click on 'Signup / Login' button
+    HomePage.validateFeatureItemTitle().clickSignupLoginBtn();
 
-    //Verify that home page is visible successfully by validating the tile
-    HomePage.validateFeatureItemTitle();
-
-    cy.get("a[href='/login']").should("be.visible").click();
-
-    cy.contains("New User Signup!");
-
-    cy.getDataQa("signup-name").type(userdata.validUser.name);
-
-    cy.getDataQa("signup-email").type(userdata.validUser.email);
-
-    cy.get('form[action="/signup"]').submit();
+    // 5. Verify 'New User Signup!' is visible
+    // 6. Enter name and email address
+    // 7. Click 'Signup' button
+    SignUpAndLogin.validateSignupTitle()
+      .enterSignupName(userdata.validUser.name)
+      .enterSignupEmail(userdata.validUser.email)
+      .submitSignUpform();
 
     cy.url().should("eq", "https://www.automationexercise.com/signup");
 

@@ -1,6 +1,7 @@
 class HomePage {
   elements = {
     FeatureItemsTitle: () => cy.get(".features_items > h2"),
+    SignupLoginBtn: () => cy.get("a[href='/login']"),
   };
 
   validateFeatureItemTitle() {
@@ -8,6 +9,13 @@ class HomePage {
       .FeatureItemsTitle()
       .should("exist")
       .should("have.text", "Features Items");
+
+    return this;
+  }
+
+  clickSignupLoginBtn() {
+    this.elements.SignupLoginBtn().should("be.visible").click();
+    return this;
   }
 }
 
