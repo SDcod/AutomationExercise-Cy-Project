@@ -20,6 +20,7 @@
 
 import HomePage from "../pages/HomePage";
 import SignUpAndLogin from "../pages/SignUpAndLogin";
+import UserRegister from "../pages/UserRegister";
 
 describe("register user", () => {
   let userdata = {};
@@ -46,48 +47,27 @@ describe("register user", () => {
       .enterSignupEmail(userdata.validUser.email)
       .submitSignUpform();
 
-    cy.url().should("eq", "https://www.automationexercise.com/signup");
-
-    cy.get(".login-form > h2>b")
-      .invoke("text")
-      .should("match", /ENTER ACCOUNT INFORMATION/i);
-
-    // cy.contains('ENTER ACCOUNT INFORMATION', ({ matchCase: false }));
-
-    cy.getDataQa("name").should("have.value", `${userdata.validUser.name}`);
-
-    cy.getDataQa("email")
-      .should("have.value", `${userdata.validUser.email}`)
-      .and("be.disabled");
-
-    cy.get("#id_gender1").click({ force: true });
-
-    cy.getDataQa("password").type(`${userdata.validUser.password}`);
-
-    cy.get("#uniform-days > select").select("11").should("have.value", "11");
-
-    cy.get("#uniform-months > select")
-      .select("March")
-      .should("have.value", "3");
-
-    cy.get("#uniform-years > select")
-      .select("2000")
-      .should("have.value", "2000");
-
-    cy.get("#newsletter").check().should("be.checked");
-    cy.get("[name=optin]").check().should("be.checked");
-
-    cy.getDataQa("first_name").type(`${userdata.validUser.firstname}`);
-    cy.getDataQa("last_name").type(`${userdata.validUser.lastname}`);
-    cy.getDataQa("company").type(`${userdata.validUser.company}`);
-    cy.getDataQa("address").type(`${userdata.validUser.address}`);
-
-    cy.get("#country").select("India").should("have.value", "India");
-    cy.getDataQa("state").type(`${userdata.validUser.state}`);
-    cy.getDataQa("city").type(`${userdata.validUser.city}`);
-    cy.getDataQa("zipcode").type(`${userdata.validUser.zipcode}`);
-    cy.getDataQa("mobile_number").type(`${userdata.validUser.mobile_number}`);
-    cy.getDataQa("create-account").should("be.visible").click();
+    UserRegister.validateURL()
+      .validateFormTitle()
+      .chooseGenderMr()
+      .validateUserName(`${userdata.validUser.name}`)
+      .validateUserEmail(`${userdata.validUser.email}`)
+      .enterPassword(`${userdata.validUser.password}`)
+      .selectDay("11")
+      .selectMonth("March")
+      .selectYear("2000")
+      .checkNewsletter()
+      .checkOptin()
+      .fillFirstName(`${userdata.validUser.firstname}`)
+      .fillLastName(`${userdata.validUser.lastname}`)
+      .fillCompany(`${userdata.validUser.company}`)
+      .fillAddress(`${userdata.validUser.address}`)
+      .selectCountry("India")
+      .fillState(`${userdata.validUser.state}`)
+      .fillCity(`${userdata.validUser.city}`)
+      .fillZipcode(`${userdata.validUser.zipcode}`)
+      .fillMobileNumber(`${userdata.validUser.mobile_number}`)
+      .clickCreateAccount();
 
     cy.contains("Account Created!");
     // cy.getDataQa("account-created")
