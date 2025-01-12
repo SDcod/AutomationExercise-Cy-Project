@@ -19,6 +19,7 @@ class AccountCreated {
 
   clickContinue() {
     this.elements.continueBtn().should("be.visible").click();
-    return this;
   }
 }
+
+export default new AccountCreated();

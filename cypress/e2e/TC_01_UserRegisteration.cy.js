@@ -18,6 +18,8 @@
 // 17. Click 'Delete Account' button
 // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
+import AccountCreated from "../pages/AccountCreated";
+import DeleteAccount from "../pages/DeleteAccount";
 import HomePage from "../pages/HomePage";
 import SignUpAndLogin from "../pages/SignUpAndLogin";
 import UserRegister from "../pages/UserRegister";
@@ -47,6 +49,12 @@ describe("register user", () => {
       .enterSignupEmail(userdata.validUser.email)
       .submitSignUpform();
 
+    // 8. Verify that 'ENTER ACCOUNT INFORMATION' is visible
+    // 9. Fill details: Title, Name, Email, Password, Date of birth
+    // 10. Select checkbox 'Sign up for our newsletter!'
+    // 11. Select checkbox 'Receive special offers from our partners!'
+    // 12. Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number
+    // 13. Click 'Create Account button'
     UserRegister.validateURL()
       .validateFormTitle()
       .chooseGenderMr()
@@ -67,31 +75,27 @@ describe("register user", () => {
       .fillCity(`${userdata.validUser.city}`)
       .fillZipcode(`${userdata.validUser.zipcode}`)
       .fillMobileNumber(`${userdata.validUser.mobile_number}`)
-      .clickCreateAccount();
+      .clickCreateAccount(); // 13. Click 'Create Account button'
 
-    cy.contains("Account Created!");
-    // cy.getDataQa("account-created")
-    //   .find("b")
-    //   .should("have.text", "Account Created!");
+    // 14. Verify that 'ACCOUNT CREATED!' is visible
+    // 15. Click 'Continue' button
 
-    cy.getDataQa("continue-button").should("be.visible").click();
+    AccountCreated.validateURL().validateSuccessMsg().clickContinue();
 
-    // cy.xpath("//a[text()=' Logged in as ']/b").should(
-    //   "have.text",
-    //   `${userdata.validUser.name}`
-    // );
+    cy.url().should((url) => {
+      const baseUrl = Cypress.config("baseUrl");
+      expect(url).to.equal(`${baseUrl}`);
+    });
 
-    cy.contains(`Logged in as ${userdata.validUser.name}`);
+    // 16. Verify that 'Logged in as username' is visible
+    // 17. Click 'Delete Account' button
+    // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
+    HomePage.validateLoggedInUser(
+      `Logged in as ${userdata.validUser.name}`
+    ).clickDeleteAccount();
 
-    cy.xpath("//a[text()=' Delete Account']").should("be.visible").click();
+    DeleteAccount.validateURL().validateSuccessMsg().clickContinue();
 
-    cy.getDataQa("account-deleted")
-      .find("b")
-      .invoke("text")
-      .should("match", /Account Deleted!/i);
-
-    cy.get('[data-qa="continue-button"]').should("be.visible").click();
-
-    cy.get("a[href='/login']").should("be.visible");
+    HomePage.validateSignUpLogin();
   });
 });
