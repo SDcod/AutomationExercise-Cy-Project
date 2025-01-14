@@ -3,6 +3,7 @@ class HomePage {
     FeatureItemsTitle: () => cy.get(".features_items > h2"),
     SignupLoginBtn: () => cy.get("a[href='/login']"),
     deleteAccountBtn: () => cy.xpath("//a[text()=' Delete Account']"),
+    LogoutBtn: () => cy.get("a[href='/logout']"),
   };
 
   validateFeatureItemTitle() {
@@ -29,6 +30,10 @@ class HomePage {
 
   validateSignUpLogin() {
     this.elements.SignupLoginBtn().should("be.visible");
+  }
+
+  clickLogoutBtn() {
+    this.elements.LogoutBtn().should("be.visible").click();
   }
 }
 

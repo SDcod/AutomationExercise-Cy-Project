@@ -1,0 +1,41 @@
+{
+  "validUser": {
+    "name": "JohnDoe",
+    "email": "john.valid@test.com",
+    "password": "john@1234",
+    "firstname": "John",
+    "lastname": "Doe",
+    "company": "ABC Inc.",
+    "address": "123 Dx, street no.2 ,Mumbai(112233),India.",
+    "state": "MH",
+    "city": "Mumbai",
+    "zipcode": "112233",
+    "mobile_number": "9902202201"
+  },
+  "validUser1": {
+    "name": "kevinT",
+    "email": "kevin.valid@test.com",
+    "password": "kevin@1234",
+    "firstname": "kevin",
+    "lastname": "Tales",
+    "company": "ABC Inc.",
+    "address": "123 Dx, street no.2 ,Mumbai(112233),India.",
+    "state": "MH",
+    "city": "Pune",
+    "zipcode": "112233",
+    "mobile_number": "9888889201"
+  },
+  "existingUser": {
+    "name": "Daniel",
+    "email": "daniel.valid@test.com",
+    "password": "daniel@1234",
+    "firstname": "daniel",
+    "lastname": "buke",
+    "company": "ABC Inc.",
+    "address": "123 Dx, street no.2 ,Mumbai(112233),India.",
+    "state": "MH",
+    "city": "Pune",
+    "zipcode": "112233",
+    "mobile_number": "7777111777"
+  }
+}

@@ -1,21 +1,17 @@
-{
-  "validUser": {
-    "name": "JohnDoe",
-    "email": "john.valid@test.com",
-    "password": "john@1234",
-    "firstname": "John",
-    "lastname": "Doe",
-    "company": "ABC Inc.",
-    "address": "123 Dx, street no.2 ,Mumbai(112233),India.",
-    "state": "MH",
-    "city": "Mumbai",
-    "zipcode": "112233",
-    "mobile_number": "9902202201"
+[
+  {
+    "email": "kevin.valid@test.com",
+    "password": "kevin@1234",
+    "expected": "Logged in as kevinT"
   },
-
-  "invalidUser": {
-    "name": "JohnDoei",
-    "email": "john.invalid@test.com",
-    "password": "john@1234"
+  {
+    "email": "kevin.invalid@test.com",
+    "password": "kevin@1234",
+    "expected": "Your email or password is incorrect!"
+  },
+  {
+    "email": "kevin.valid@test.com",
+    "password": "kevinValid@1234",
+    "expected": "Your email or password is incorrect!"
   }
-}
+]

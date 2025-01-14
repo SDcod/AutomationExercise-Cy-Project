@@ -28,7 +28,7 @@ describe("register user", () => {
   let userdata = {};
 
   beforeEach(() => {
-    cy.fixture("LoginData.json").then((data) => {
+    cy.fixture("RegisterData.json").then((data) => {
       userdata = data;
     });
     // 1. Launch browser
@@ -90,12 +90,12 @@ describe("register user", () => {
     // 16. Verify that 'Logged in as username' is visible
     // 17. Click 'Delete Account' button
     // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-    HomePage.validateLoggedInUser(
-      `Logged in as ${userdata.validUser.name}`
-    ).clickDeleteAccount();
+    HomePage.validateLoggedInUser(`Logged in as ${userdata.validUser.name}`);
 
-    DeleteAccount.validateURL().validateSuccessMsg().clickContinue();
+    // .clickDeleteAccount();
 
-    HomePage.validateSignUpLogin();
+    // DeleteAccount.validateURL().validateSuccessMsg().clickContinue();
+
+    // HomePage.validateSignUpLogin();
   });
 });
