@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
-    "cy:UItests:chrome": "cypress run --browser chrome --spec \"cypress/e2e/UI-tests/*.spec.cy.js\"",
-    "cy:UItests:firefox": "cypress run --browser firefox --spec \"cypress/e2e/UI-tests/*.spec.cy.js\""
+    "cy-UI-tests-chrome": "cypress run --browser chrome --spec \"cypress/e2e/UI-tests/*.spec.cy.js\"",
+    "cy-UI-tests-firefox": "cypress run --browser firefox --spec \"cypress/e2e/UI-tests/*.spec.cy.js\""
   },
   "author": "",
   "license": "ISC",

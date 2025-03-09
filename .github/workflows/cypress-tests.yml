@@ -6,7 +6,7 @@ on:
       -main
 
 jobs:
-  cypress-run-UI_tests:chrome:
+  cy-UI-tests-chrome:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -16,9 +16,9 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run cy:UItests:chrome
+          command: npm run cy-UI-tests-chrome
   
-  cypress-run-UI_tests:chrome:
+  cy-UI-tests-firefox:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -28,4 +28,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run cy:UItests:firefox
+          command: npm run cy-UI-tests-firefox
