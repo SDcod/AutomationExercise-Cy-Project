@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open": "npx cypress open"
+    "cy:open": "cypress open",
+    "cy:UItests:chrome": "cypress run --browser chrome --spec \"cypress/e2e/UI-tests/*.spec.cy.js\"",
+    "cy:UItests:firefox": "cypress run --browser firefox --spec \"cypress/e2e/UI-tests/*.spec.cy.js\""
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +15,7 @@
     "cypress": "^13.17.0"
   },
   "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1"
   }
 }

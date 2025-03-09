@@ -18,11 +18,12 @@
 // 17. Click 'Delete Account' button
 // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
-import AccountCreated from "../pages/AccountCreated";
-import DeleteAccount from "../pages/DeleteAccount";
-import HomePage from "../pages/HomePage";
-import SignUpAndLogin from "../pages/SignUpAndLogin";
-import UserRegister from "../pages/UserRegister";
+import AccountCreated from "../../pages/AccountCreated";
+import DeleteAccount from "../../pages/DeleteAccount";
+
+import HomePage from "../../pages/HomePage";
+import SignUpAndLogin from "../../pages/SignUpAndLogin";
+import UserRegister from "../../pages/UserRegister";
 
 describe("register user", () => {
   let userdata = {};
@@ -90,12 +91,12 @@ describe("register user", () => {
     // 16. Verify that 'Logged in as username' is visible
     // 17. Click 'Delete Account' button
     // 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
-    HomePage.validateLoggedInUser(`Logged in as ${userdata.validUser.name}`);
+    HomePage.validateLoggedInUser(
+      `Logged in as ${userdata.validUser.name}`
+    ).clickDeleteAccount();
 
-    // .clickDeleteAccount();
+    DeleteAccount.validateURL().validateSuccessMsg().clickContinue();
 
-    // DeleteAccount.validateURL().validateSuccessMsg().clickContinue();
-
-    // HomePage.validateSignUpLogin();
+    HomePage.validateSignUpLogin();
   });
 });

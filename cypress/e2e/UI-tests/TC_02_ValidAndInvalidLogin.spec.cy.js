@@ -11,11 +11,11 @@
 // 10. Verify that 'ACCOUNT DELETED!' is visible
 ///<reference types='cypress'/>
 
-import AccountCreated from "../pages/AccountCreated";
-import HomePage from "../pages/HomePage";
-import SignUpAndLogin from "../pages/SignUpAndLogin";
-import UserRegister from "../pages/UserRegister";
-import DeleteAccount from "../pages/DeleteAccount";
+import AccountCreated from "../../pages/AccountCreated";
+import HomePage from "../../pages/HomePage";
+import SignUpAndLogin from "../../pages/SignUpAndLogin";
+import UserRegister from "../../pages/UserRegister";
+import DeleteAccount from "../../pages/DeleteAccount";
 
 describe("Register and validate user logins", () => {
   let userdata = {};
