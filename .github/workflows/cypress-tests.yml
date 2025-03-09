@@ -6,7 +6,7 @@ on:
       -main
 
 jobs:
-  cy_UI_tests_chrome:
+  cy_UI_tests-chrome:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
         with:
           command: npm run cy-UI-tests-chrome
   
-  cy_UI_tests_firefox:
+  cy_UI_tests-firefox:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
