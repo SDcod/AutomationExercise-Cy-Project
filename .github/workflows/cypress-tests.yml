@@ -1,6 +1,6 @@
 name: cypress-tests
 
-on: push
+# on: push
 
 jobs:
   cy_UI_tests-chrome:

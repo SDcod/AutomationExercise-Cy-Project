@@ -41,7 +41,6 @@ describe("register user", () => {
     // 3. Verify that home page is visible successfully
     // 4. Click on 'Signup / Login' button
     HomePage.validateFeatureItemTitle().clickSignupLoginBtn();
-
     // 5. Verify 'New User Signup!' is visible
     // 6. Enter name and email address
     // 7. Click 'Signup' button
