@@ -8,7 +8,8 @@
     "cy:open": "cypress open",
     "cy-UI-tests-chrome": "cypress run --browser chrome --spec \"cypress/e2e/UI-tests/*.spec.cy.js\"",
     "cy-UI-tests-firefox": "cypress run --browser firefox --spec \"cypress/e2e/UI-tests/*.spec.cy.js\"",
-    "cy-API-post": "cypress run --browser chrome --config-file configs/API-Tests.config.js --spec \"cypress/e2e/API-tests/postUsers.spec.cy.js\""
+    "cy-API-post": "cypress run --browser chrome --config-file configs/API-Tests.config.js --spec \"cypress/e2e/API-tests/postUsers.spec.cy.js\"",
+    "cy-API-open": "cypress open --config-file configs/API-Tests.config.js"
   },
   "author": "",
   "license": "ISC",
